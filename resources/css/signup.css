@@ -1,0 +1,142 @@
+a{
+    text-underline: none;
+    color: #4EB788;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+}
+p{
+    color:#252541;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+footer{
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #DCF5FA;
+}
+body{
+
+    background:#252541;
+}
+h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #DCF5FA;
+}
+.signup-button{
+    width: 429px;
+    height: 60px;
+    left: 127px;
+    margin-top: 67px;
+    text-align: center;
+    background: #3B3B55;
+    /* My Shadow */
+
+    box-shadow: 10px 19px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #DCF5FA;
+
+}
+.input {
+    margin-left: 37px;
+    width: 610px;
+    height: 68px;
+    display: flex;
+    align-items: stretch;
+    padding: 10px;
+    background: rgba(59, 59, 85, 0.48);
+    border: 3px solid #252541;
+    box-sizing: border-box;
+    /* My Shadow */
+
+    box-shadow: 10px 19px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.input-feild {
+
+    margin-top: 1%;
+    background-color: rgba(59, 59, 85, 0);
+    border: none;
+    width: 513px;
+    height: 30px;
+    border-bottom: 3px solid #3B3B55;
+}
+
+.input-feild:focus {
+    outline: none;
+    background-color: rgba(59, 59, 85, 0);
+    border-bottom: 3px solid #E36588;
+}
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.container {
+    align-items: center;
+    width: 684px;
+    height: 832px;
+    left: 378px;
+    top: 88px;
+    background: #E36588;
+    border: 3px solid #3B3B55;
+    box-sizing: border-box;
+    /* My Shadow */
+
+    box-shadow: 10px 19px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.title-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 117px;
+    background: #3B3B55;
+    margin-top: -5px;
+    margin-right: -1px;
+    /* My Shadow */
+
+    box-shadow: 10px 19px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 0px;
+    padding-right: 10px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+    padding: 100px;
+}
