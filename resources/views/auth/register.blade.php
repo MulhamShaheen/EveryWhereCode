@@ -1,127 +1,73 @@
-@extends('layouts.my-auth')
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('form')
-<div class="main">
-    <div class="container-reg">
-        <div class="title-sign">
-            <h1>MySite</h1>
+    <title>{{ config('app.name', 'My Blog') }}</title>
+
+{{--    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>--}}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="{{ URL::asset('css/app.css?'.filectime('css/app.css')) }}" rel="stylesheet">
+</head>
+
+<body>
+
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="align-items-center reg-form d-flex flex-column justify-content-center">
+                <h2>Welcome!</h2>
+                <form action="{{route('register.custom')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <input type="text" placeholder="Name" id="name" class="form-control" name="name"
+                               required autofocus>
+                        @if ($errors->has('name'))
+                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" placeholder="Email" id="email_address" class="form-control"
+                               name="email" required autofocus>
+                        @if ($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" placeholder="Password" id="password" class="form-control"
+                               name="password" required>
+                        @if ($errors->has('password'))
+                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="file" name="prof_picture" id="prof_picture" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="remember"> Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="d-grid mx-auto">
+                        <button type="submit" class="btn btn-dark btn-block">Sign up</button>
+                    </div>
+                </form>
+                <div>
+                    Or click <a href="login">here</a> if you already have an account
+                </div>
+            </div>
         </div>
-        <div>
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-                <div class="input" style=" margin-top: 63px">
-                    <img class="icon" src="/img/user.svg" alt="">
-                    <input class="input-feild" type="text" name="name" value="{{ old('name') }}" placeholder="ФИО" style="">
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
-                </div>
-                <div class="input" style="margin-top: 63px">
-                    <img class="icon" src="/img/at-sign.svg" alt="">
-                    <input id="email" class="form-control input-field @error('email') s-invalid @enderror " type="text" name="email" value="{{ old('email') }}" placeholder="Твоя Почта">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                    @enderror
-                </div>
-                <div class="input" style=" margin-top: 63px">
-                    <img class="icon" src="/img/lock.svg" alt="">
-                    <input id="password" class="input-field" type="password" name="password" placeholder="Новый пароль">
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="input" style="margin-top: 63px;">
-                    <img class="icon" src="/img/key.svg" alt="" style="">
-                    <input id="password-confirm" type="password" name="password_confirmation" class="input-feild form-control" placeholder="Подъвердить пароль">
-                </div>
-                <div class="signup">
-                    <button type="submit" name="button" class="hvr-fade signup-button">Sign in</button>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="remember">
-                        Remember Me
-                    </label>
-                </div>
-            </form>
-        </div>
-    </div>
 
-{{--    <div class="row justify-content-center">--}}
-{{--        <div class="col-md-8">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">{{ __('Register') }}</div>--}}
+</body>
 
-{{--                <div class="card-body">--}}
-{{--                    <form method="POST" action="{{ route('register') }}">--}}
-{{--                        @csrf--}}
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
-
-{{--                                @error('name')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">--}}
-
-{{--                                @error('email')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">--}}
-
-{{--                                @error('password')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-0">--}}
-{{--                            <div class="col-md-6 offset-md-4">--}}
-{{--                                <button type="submit" class="btn btn-primary">--}}
-{{--                                    {{ __('Register') }}--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-</div>
-@endsection
+</html>

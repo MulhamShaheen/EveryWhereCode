@@ -28,34 +28,32 @@
 
 
 <body>
-
-@yield('header')
-<div>
-        <div class="landing-container">
-            <div class="landing-text">
-                <div class="landing-text-main">
-                    <h1>Привет Вездекодер</h1>
-                </div>
-                <div class="landing-text-secondary">
-                    Работы команды Тестовое Название
-                </div>
-            </div>
-            <div class="landing-form">
-                @if(!Auth::check())
-                    <a href="/registration">Регаться</a>
-                    <a href="/login">Войти</a>
-                @else
-                    <h2>Переходить к своим <a href="/main" >задачам</a> </h2>
-                @endif
-            </div>
-        </div>
-</div>
-<div style="
-      border-top: 300px solid transparent;
-      border-left: 97vw solid #1a202c;
-">
+<div class="main">
+    <div class="container">
+        <table class="table" style="color: #a0aec0" >
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach(App\Models\User::all() as $user)
+                <tr>
+                    <th scope="row">{{$user->id}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->role}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
 </div>
+
 </body>
 
 <script src="{{ mix('js/app.js')}}" ></script>

@@ -23,6 +23,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="Reg.ru">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="Ssapp">
         <serverdata>
           <mappings>
@@ -31,6 +38,27 @@
         </serverdata>
       </paths>
       <paths name="Student27">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="beget free">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="beget paid">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="fornex">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
